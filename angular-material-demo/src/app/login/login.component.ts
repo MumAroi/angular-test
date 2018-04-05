@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import * as decode from 'jwt-decode';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,24 +20,29 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
+  userDetail: {};
 
   ngOnInit() {
   }
 
   login(): void {
-    if (this.username === 'admin' && this.password === 'admin') {
+    // if (this.username === 'admin' && this.password === 'admin') {
       this.http.post('http://localhost:3000/api/login', '', headers).subscribe(
         resp => {
-          console.log(resp);
+          localStorage.setItem('token', resp['token']);
+          this.userDetail = decode(localStorage.getItem('token'));
+          console.log(this.userDetail);
+          if (this.userDetail['user']['id']) {
+            this.router.navigate(['user']);
+          }
         },
         err => {
           console.log(err);
         }
       );
-      // this.router.navigate(['user']);
-    } else {
-      alert('Invalid credentials');
-    }
+    // } else {
+    //   alert('Invalid credentials');
+    // }
   }
 
 }
