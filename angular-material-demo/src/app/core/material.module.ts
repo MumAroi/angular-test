@@ -2,7 +2,8 @@ import { NgModule, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatFormFieldModule, MatSelectModule, MatRadioModule, MatSortModule
+  MatToolbarModule, MatFormFieldModule, MatSelectModule, MatRadioModule, MatSortModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,7 +18,8 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
     ],
   exports: [
     CommonModule,
@@ -30,7 +32,8 @@ import {
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ],
 })
 export class CustomMaterialModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatTableDataSource, MatSort, MatSortable } from '@angular/material';
+import { MatTableDataSource, MatSort, MatSortable, MatPaginator } from '@angular/material';
 
 import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs/Observable';
@@ -17,8 +17,9 @@ import * as decode from 'jwt-decode';
 export class UserComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  dataSource;
+  dataSource: MatTableDataSource<User[]>;
   displayedColumns = ['user_id', 'first_name', 'last_name', 'email', 'phone_number', 'action'];
 
   constructor(private userService: UserService) { }
@@ -34,6 +35,7 @@ export class UserComponent implements OnInit {
         if (!resp) { return; }
         this.dataSource = new MatTableDataSource(resp);
         this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
         console.log(resp);
       },
       err => {
@@ -41,4 +43,11 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
+
 }
