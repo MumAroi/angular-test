@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       username: [null, [Validators.required]],
       password: [null, Validators.required]
     });
-
   }
 
   login(): void {
