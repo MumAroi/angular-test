@@ -24,11 +24,17 @@ export class LoginComponent implements OnInit {
   formLogin: FormGroup;
 
   ngOnInit() {
+    this.createFormLogin();
+  }
+
+  createFormLogin(): void {
     this.formLogin = this.formBuilder.group({
-      username: [null, [Validators.required, Validators.email]],
+      // username: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required]],
       password: [null, Validators.required]
     });
-  } 
+
+  }
 
   login(): void {
     if (this.formLogin.valid) {
@@ -62,7 +68,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  
+
   isFieldValid(field: string) {
     return !this.formLogin.get(field).valid && this.formLogin.get(field).touched;
   }

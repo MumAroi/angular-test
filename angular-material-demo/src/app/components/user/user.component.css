@@ -1,0 +1,13 @@
+.table-margin {
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    text-decoration-color: blue;
+}
+.user-list-top {
+    display: flex;
+    margin: 20px; 
+    justify-content: flex-end;
+}

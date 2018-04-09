@@ -9,10 +9,14 @@ import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserComponent } from './components/user/user.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserCreateComponent } from './components/user/user-create/user-create.component';
+
+import { UserService } from './services/user.service';
+
 
 
 @NgModule({
@@ -21,7 +25,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     UserComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +35,9 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

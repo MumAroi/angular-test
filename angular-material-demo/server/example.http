@@ -7,7 +7,7 @@ POST http://localhost:3000/api/posts
 ####
 POST http://localhost:3000/api/posts HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAdGVzLnRlc3QifSwiaWF0IjoxNTIyOTA0Njg0LCJleHAiOjE1MjI5MDQ3MTR9.O0lMbSgYO547SCbdq2VvTJ4t3KrZ4PcjYATs8ZLERkw
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAdGVzLnRlc3QifSwiaWF0IjoxNTIyOTA0Njg0LCJleHAiOjE1MjI5MDQ3MTR9.O0lMbSgYO547SCbdq2VvTJ4t3KrZ4PcjYATs8ZLERkw
 
 ####
 POST http://localhost:3000/api/login

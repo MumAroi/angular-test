@@ -1,0 +1,10 @@
+.example-container {
+    display: flex;
+    /* margin: 20px auto; */
+    flex-direction: column;
+}
+
+.card-container{
+    width: 400px;
+    margin: 20px auto;
+}
