@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource, MatSort, MatSortable, MatPaginator } from '@angular/material';
 
+import { PermissionService } from '../../services/permission.service';
 import { UserService } from '../../services/user.service';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/user.model';
@@ -22,10 +23,10 @@ export class UserComponent implements OnInit {
   dataSource: MatTableDataSource<User[]>;
   displayedColumns = ['user_id', 'first_name', 'last_name', 'email', 'phone_number', 'action'];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private permissionService: PermissionService) { }
 
   ngOnInit() {
-    console.log(decode(localStorage.getItem('token')));
+    console.log(this.permissionService.getPermission());
     this.fetchUserData();
   }
 
@@ -36,7 +37,7 @@ export class UserComponent implements OnInit {
         this.dataSource = new MatTableDataSource(resp);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        console.log(resp);
+        // console.log(resp);
       },
       err => {
         console.log(err);

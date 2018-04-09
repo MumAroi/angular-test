@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
         resp => {
           localStorage.setItem('token', resp['token']);
           this.userDetail = decode(localStorage.getItem('token'));
-          console.log('form submitted');
-          console.log(this.userDetail);
+          // console.log('form submitted');
+          // console.log(this.userDetail);
           if (this.userDetail['user']['id']) {
             this.router.navigate(['user']);
           }
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
-      console.log(field);
+      // console.log(field);
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
         control.markAsTouched({ onlySelf: true });

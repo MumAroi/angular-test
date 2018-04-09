@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserCreateComponent } from './components/user/user-create/user-create.component';
 
 import { UserService } from './services/user.service';
+import { PermissionService } from './services/permission.service';
 
 
 
@@ -37,7 +38,7 @@ import { UserService } from './services/user.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, PermissionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
